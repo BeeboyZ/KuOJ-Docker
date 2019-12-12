@@ -23,7 +23,7 @@ RUN	git clone https://github.com/keunbum/KUOJ.git ~/KUOJ
 #copy KUOJ to html folder
 RUN	cp -r ~/KUOJ /var/www/html/
 #make socket file to dir and import database
-RUN	mysql -u root mysql -S /var/lib/mysql/mysql.sock < ~KUOJ/DB/kuoj.sql
+RUN	mysql -u root mysql -S /var/lib/mysql/mysql.sock < /var/www/html/KUOJ/DB/kuoj.sql
 
 EXPOSE	80
 
