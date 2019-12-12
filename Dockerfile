@@ -1,7 +1,9 @@
 FROM	ubuntu:18.04
 MAINTAINER	KuOJ <Konkuk University CSE>
 
-RUN	apt-get -y update && apt-get -y upgrade	#install ubuntu  
+ENV	DEBIAN_FRONTEND=noninteractive #avoiding user interraction
+
+RUN	apt-get update -y && apt-get install -y --no-install-recommends apt-utils #install ubuntu  
 RUN	apt-get install -y apache2 #install apache	
 RUN	apt-get install -y php php-mysql #install php
 RUN	apt-get install -y mysql-server #install mysql
