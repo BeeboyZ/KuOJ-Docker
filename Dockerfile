@@ -21,9 +21,10 @@ RUN	apt-get install -y make
 #download KUOJ from github
 RUN	git clone https://github.com/keunbum/KUOJ.git /home
 #copy KUOJ to html folder
-RUN	cp -r /home/KUOJ /var/www/html/
+#RUN	cp -r /home/KUOJ /var/www/html/
 #import database to mysql
-RUN	mysql -u root < /home/KUOJ/DB/kuoj.sql
+#RUN	mysql -u root < /home/KUOJ/DB/kuoj.sql
+RUN	find / -name KUOJ -type d
 
 
 EXPOSE	80
