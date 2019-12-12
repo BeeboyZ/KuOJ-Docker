@@ -22,12 +22,8 @@ RUN	apt-get install -y make
 RUN	git clone https://github.com/keunbum/KUOJ.git ~/KUOJ
 #copy KUOJ to html folder
 RUN	cp -r ~/KUOJ /var/www/html/
-#make socket file to dir
-RUN	mysql -u root -p --socket=/tmp/mysql.sock
-#import database to mysql
-RUN	mysql -u root < ~/KUOJ/DB/kuoj.sql
-
-
+#make socket file to dir and import database
+RUN	mysql -u root mysql -S /var/lib/mysql/mysql.sock < ~KUOJ/DB/kuoj.sql
 
 EXPOSE	80
 
