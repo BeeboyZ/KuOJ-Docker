@@ -22,6 +22,8 @@ RUN	apt-get install -y make
 RUN	git clone https://github.com/keunbum/KUOJ.git ~/KUOJ
 #copy KUOJ to html folder
 RUN	cp -r ~/KUOJ /var/www/html/
+#restart apache2
+RUN	service apache2 restart
 #make socket file to dir and import database
 #RUN	mysql -u root mysql -S /var/lib/mysql/mysql.sock < /var/www/html/KUOJ/DB/kuoj.sql
 
