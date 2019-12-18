@@ -24,10 +24,13 @@ RUN	git clone https://github.com/keunbum/KUOJ.git ~/KUOJ
 RUN	cp -r ~/KUOJ /var/www/html/
 #restart apache2
 RUN	echo "ServerName localhost" >> /etc/apache2/apache2.conf
-RUN	service apache2 restart
+#RUN	service apache2 restart
 
-RUN	service mysql restart
-RUN	mysql -u root mysql < /var/www/html/KUOJ/DB/kuoj.sql
+#RUN	service mysql restart
+#RUN	mysql -u root mysql < /var/www/html/KUOJ/DB/kuoj.sql
+
+#restart apache2 mysql on container
+CMD	service apache2 restart && service mysql restart
 
 EXPOSE	80
 
