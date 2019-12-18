@@ -5,7 +5,7 @@ MAINTAINER	KuOJ <Konkuk University CSE>
 ENV	DEBIAN_FRONTEND=noninteractive 
 
 #install ubuntu
-RUN	apt-get update -y && apt-get install -y
+RUN	apt-get update -y && apt-get install -y --no-install-recommends apt-utils
 #install apache
 RUN	apt-get install -y apache2	
 #install php
