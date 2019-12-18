@@ -5,7 +5,7 @@ MAINTAINER	KuOJ <Konkuk University CSE>
 ENV	DEBIAN_FRONTEND=noninteractive 
 
 #install ubuntu
-RUN	apt-get update -y && apt-get install -y --no-install-recommends apt-utils 
+RUN	apt-get update -y && apt-get install -y
 #install apache
 RUN	apt-get install -y apache2	
 #install php
@@ -21,14 +21,14 @@ RUN	apt-get install -y make
 #install libmysqlclient
 RUN	apt-get install -y libmysqlclient-dev
 #clone KUOJ from github
-RUN	git clone https://github.com/keunbum/KUOJ.git ~/KUOJ
+RUN	git clone https://github.com/keunbum/KUOJ.git ~/kuoj
 #copy KUOJ to html folder
-RUN	cp -r ~/KUOJ /var/www/html/
+RUN	cp -r ~/kuoj /var/www/html/
 #restart apache2
 RUN	echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
-#restart apache2 mysql on container, import database, run bash shell
-CMD	service apache2 restart && service mysql restart && mysql -u root mysql < /var/www/html/KUOJ/DB/kuoj.sql && /bin/bash
+#restart apache2 mysql on container, import database, run server, run bash shell
+CMD	service apache2 restart && service mysql restart && mysql -u root mysql < /var/www/html/kuoj/DB/kuoj.sql && /var/www/html/kuoj/Score/server && /bin/bash
 
 #set port number for host
 EXPOSE	80
