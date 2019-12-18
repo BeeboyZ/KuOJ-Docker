@@ -30,7 +30,7 @@ RUN	echo "ServerName localhost" >> /etc/apache2/apache2.conf
 #RUN	mysql -u root mysql < /var/www/html/KUOJ/DB/kuoj.sql
 
 #restart apache2 mysql on container
-ENTRYPOINT	service apache2 restart && service mysql restart
+CMD	service apache2 restart && service mysql restart && /bin/bash
 
 EXPOSE	80
 
