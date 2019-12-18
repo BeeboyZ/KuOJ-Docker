@@ -1,25 +1,25 @@
-FROM	ubuntu:18.04
+FROM	ubuntu:19.10
 MAINTAINER	KuOJ <Konkuk University CSE>
 
 #avoiding user interaction while building
 ENV	DEBIAN_FRONTEND=noninteractive 
 
 #install ubuntu
-RUN	apt-get update -y
+RUN	apt update -y && apt upgrade -y && apt install -y --no-install-recommends apt-utils
 #install apache
-RUN	apt-get install -y apache2	
+RUN	apt install -y apache2	
 #install php
-RUN	apt-get install -y php php-mysql
+RUN	apt install -y php php-mysql
 #install mysql
-RUN	apt-get install -y mysql-server
+RUN	apt install -y mysql-server
 #install git
-RUN	apt-get install -y git
+RUN	apt install -y git
 #install g++ compiler
-RUN	apt-get install -y g++
+RUN	apt install -y g++
 #install make utility
-RUN	apt-get install -y make
+RUN	apt install -y make
 #install libmysqlclient
-RUN	apt-get install -y libmysqlclient-dev
+RUN	apt install -y libmysqlclient-dev
 #clone KUOJ from github
 RUN	git clone https://github.com/keunbum/KUOJ.git ~/kuoj
 #copy KUOJ to html folder
@@ -32,4 +32,3 @@ CMD	service apache2 restart && service mysql restart && mysql -u root mysql < /v
 
 #set port number for host
 EXPOSE	80
-
