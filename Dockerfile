@@ -19,9 +19,9 @@ RUN	apt-get install -y g++
 #install make utility
 RUN	apt-get install -y make
 #download KUOJ from github
-#RUN	git clone https://github.com/keunbum/KUOJ.git ~/KUOJ
+RUN	git clone https://github.com/keunbum/KUOJ.git ~/KUOJ
 #copy KUOJ to html folder
-#RUN	cp -r ~/KUOJ /var/www/html/
+RUN	cp -r ~/KUOJ /var/www/html/
 #restart apache2
 RUN	echo "ServerName localhost" >> /etc/apache2/apache2.conf
 #RUN	service apache2 restart
@@ -30,7 +30,7 @@ RUN	echo "ServerName localhost" >> /etc/apache2/apache2.conf
 #RUN	mysql -u root mysql < /var/www/html/KUOJ/DB/kuoj.sql
 
 #restart apache2 mysql on container
-CMD	service apache2 restart && service mysql restart && ["/bin/bash"]
+ENTRYPOINT	service apache2 restart && service mysql restart
 
 EXPOSE	80
 
