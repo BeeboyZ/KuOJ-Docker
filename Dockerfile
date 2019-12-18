@@ -31,6 +31,7 @@ RUN	echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
 #restart apache2 mysql on container
 CMD	service apache2 restart && service mysql restart
+ENTRYPOINT	["/bin/bash"]
 
 EXPOSE	80
 
