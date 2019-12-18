@@ -25,8 +25,9 @@ RUN	cp -r ~/KUOJ /var/www/html/
 #restart apache2
 RUN	echo "ServerName localhost" >> /etc/apache2/apache2.conf
 RUN	service apache2 restart
-#make socket file to dir and import database
-#RUN	mysql -u root mysql -S /var/lib/mysql/mysql.sock < /var/www/html/KUOJ/DB/kuoj.sql
+
+RUN	service mysql restart
+RUN	mysql -u root mysql < /var/www/html/KUOJ/DB/kuoj.sql
 
 EXPOSE	80
 
