@@ -19,9 +19,9 @@ RUN	apt-get install -y g++
 #install make utility
 RUN	apt-get install -y make
 #install libmysqlclient
-RUN	apt-get install -y libmysqlclient -dev
+RUN	apt-get install -y libmysqlclient-dev
 #clone KUOJ from github
-#RUN	git clone https://github.com/keunbum/KUOJ.git ~/KUOJ
+RUN	git clone https://github.com/keunbum/KUOJ.git ~/KUOJ
 #copy KUOJ to html folder
 RUN	cp -r ~/KUOJ /var/www/html/
 #restart apache2
