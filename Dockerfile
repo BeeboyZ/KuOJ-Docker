@@ -28,7 +28,7 @@ RUN	cp -r ~/kuoj /var/www/html/
 RUN	echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
 #restart apache2 mysql on container, import database, run server, run bash shell
-CMD	service apache2 restart && service mysql restart && mysql -u root mysql < /var/www/html/kuoj/DB/kuoj.sql && /bin/bash
+CMD	service apache2 restart && service mysql restart && mysql -u root mysql < /var/www/html/kuoj/DB/kuoj.sql && cd /var/www/html/kuoj/Score/ && ./server && /bin/bash
 
 #set port number for host
 EXPOSE	80
