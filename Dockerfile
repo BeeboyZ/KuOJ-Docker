@@ -21,7 +21,7 @@ RUN	apt-get install -y make
 #install libmysqlclient
 #RUN	apt-get install -y libmysqlclient-dev
 #clone KUOJ from github
-RUN	git clone https://github.com/keunbum/KUOJ.git ~/kuoj
+#RUN	git clone https://github.com/keunbum/KUOJ.git ~/kuoj
 #copy KUOJ to html folder
 RUN	cp -r ~/kuoj /var/www/html/
 #restart apache2
